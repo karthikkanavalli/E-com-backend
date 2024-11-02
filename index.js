@@ -8,6 +8,7 @@ import {verifyToken} from "./utils/verifytoken.js";
 import { AdminRouter } from "./routers/AdminRouter.js";
 import { ProductRouter } from "./routers/ProductRouter.js";
 import { CartRouter } from "./routers/CartRouter.js";
+import { OrderRouter } from "./routers/OrderRouter.js";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use("/", ProductRouter);
 app.use("/", authRouter);
 
 app.use(verifyToken);
+app.use("/orders", OrderRouter);
 
 // private routes
 app.use("/cart",CartRouter)

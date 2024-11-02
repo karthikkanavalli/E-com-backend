@@ -3,7 +3,6 @@ import CartModel from "../models/CartModel.js";
 
 
 let addToCart = async (req, res) => { 
-    console.log(req.body , "from add to cart api \n ***********************\n\n\n ###############")
     try {
         let cartExist = await CartModel.findOne({userId: req.body.userId})
         if (cartExist) {
@@ -23,7 +22,6 @@ let addToCart = async (req, res) => {
 
 
 let getCart = async (req, res) => {
-    console.log(req.query , "from get cart api \n ***********************\n\n\n ###############")
     try {
         let cart = await CartModel.findOne({ userId: req.query.userId })
         res.send({ cart: cart, status: "success" })
